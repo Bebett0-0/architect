@@ -1,16 +1,25 @@
-# React + Vite
+1. Области хранения данных.
+   -база данных(js server)
+   -BFF (backend for frontend)
+   -redux store (state manager)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+2. Сущности приложения
+   -пользователь: данные будут храниться в БД(список пользователей), в BFF(сессия текщего пользователя), redux store(для отображения в браузере)
+   -роль пользователя: БД(список ролей), BFF(сессия пользователя с ролью), redux store(использовать роль в браузере)
+   -статья: БД(список статей), redux store(для отображения)
+   -комментарий: БД(список комментариев), redux store(отображение на клиенте, в браузере)
 
-Currently, two official plugins are available:
+3. Таблицы БД:
+   -users: id / login / password / registered_at / role_id
+   -roles : id / name
+   -posts: id / title / image_url / content / published_at
+   -comments: id / author_id / post_id / content
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+4. Схема состояния на BFF:
+   -сессия текущего пользователя: login / password / role
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+5. Схема для redux store:
+   -user: id / login / roleId
+   -posts: array post: id / title / imageURL / pudlishedAt / commentsCount
+   -post: id / title / imageURL / content / pudlishedAt / comments: array comment: id/ author / content / publishedAt
+   -users: array user: id / login / registeredAt / role
