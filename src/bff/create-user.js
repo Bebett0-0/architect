@@ -1,5 +1,5 @@
 export const createUser = (regLogin, regPassword) => {
-  fetch('http://localhost:3009/users', {
+  fetch('http://localhost:4000/users', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json/charset=UTF-8',
