@@ -1,7 +1,7 @@
 import { removeComment } from './session';
 import { ROLE } from '../constants';
 
-export const creteSession = (roleId) => {
+export const createSession = (roleId) => {
   const session = {
     logout() {
       Object.keys(session).forEach((key) => {

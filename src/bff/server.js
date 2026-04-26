@@ -1,6 +1,6 @@
 import { getUser } from './getUsers';
 import { createUser } from './create-user';
-import { createSession } from './create-session';
+import { createSession } from './createSession';
 
 export const server = {
   async autorize(authLogin, authPassword) {
