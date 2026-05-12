@@ -1,4 +1,4 @@
-export const createUser = (regLogin, regPassword) => {
+export const addUser = (regLogin, regPassword) => {
   fetch('http://localhost:4000/users', {
     method: 'POST',
     headers: {
